@@ -3,12 +3,15 @@ import { NavController } from 'ionic-angular';
 
 @Component({
   selector: 'page-contact',
-  templateUrl: 'contact.html'
+  templateUrl: 'add.html'
 })
-export class ContactPage {
+export class AddPage {
 
-  constructor(public navCtrl: NavController) {
+  name: String;
 
+  constructor(public navCtrl: NavController) {}
+
+  save(){
+    alert("Saving remote");
   }
-
 }

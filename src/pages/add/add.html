@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Contact
+      New Remote
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -10,8 +10,13 @@
   <ion-list>
     <ion-list-header>Follow us on Twitter</ion-list-header>
     <ion-item>
-      <ion-icon name="ionic" item-left></ion-icon>
-      @ionicframework
+      <ion-label floating>Name</ion-label>
+      <ion-input type="text" [(ngModel)]="name"></ion-input>
     </ion-item>
+
+    <button ion-button full><ion-icon name="add"></ion-icon>Add Button</button>
+
+    <button ion-button full (click)="save()">Save</button>
+
   </ion-list>
 </ion-content>

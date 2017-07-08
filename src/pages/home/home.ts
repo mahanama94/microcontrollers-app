@@ -7,8 +7,13 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
+  items = ["itema", "item2"];
+
   constructor(public navCtrl: NavController) {
 
   }
 
+  open(item: any){
+    alert("Selected ");
+  }
 }
