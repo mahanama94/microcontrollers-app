@@ -8,7 +8,11 @@ import {RemoteService} from "../../Services/RemoteService";
 })
 export class AddPage {
 
-  name: string;
+  name: string = "New Device";
+
+  buttons: Array<{name : String}> = null;
+
+  buttonName : String = "";
 
   constructor(public navCtrl: NavController, private remoteService: RemoteService) {}
 
@@ -18,5 +22,19 @@ export class AddPage {
       .then(data => {"remote" + name + "added"})
       .catch((error) => alert(JSON.stringify(error)));
 
+  }
+
+  add(){
+    console.log(this.buttons);
+    if(this.buttons == null){
+      this.buttons = [];
+    }
+    this.buttons.push({name : this.buttonName});
+    this.buttonName = "";
+    console.log(this.buttons);
+  }
+
+  capture(){
+    alert("capturing from bluetooth");
   }
 }

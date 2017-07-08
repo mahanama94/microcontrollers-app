@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { AboutPage } from '../about/about';
 import { HomePage } from '../home/home';
 import {AddPage} from "../add/add";
+import {Events} from "ionic-angular";
 
 @Component({
   templateUrl: 'tabs.html'
@@ -13,7 +14,11 @@ export class TabsPage {
   tab3Root = AddPage;
   tab2Root = AboutPage;
 
-  constructor() {
+  constructor(public events: Events) {
 
+  }
+
+  homeSelect(){
+    this.events.publish('HomeSelect');
   }
 }
