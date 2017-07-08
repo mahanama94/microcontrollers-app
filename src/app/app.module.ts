@@ -12,6 +12,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {NativeStorage} from "@ionic-native/native-storage";
 import {RemoteService} from "../Services/RemoteService";
+import {RemotePage} from "../pages/remote/remote";
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {RemoteService} from "../Services/RemoteService";
     AboutPage,
     AddPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    RemotePage
   ],
   imports: [
     BrowserModule,
@@ -31,7 +33,8 @@ import {RemoteService} from "../Services/RemoteService";
     AboutPage,
     AddPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    RemotePage
   ],
   providers: [
     StatusBar,

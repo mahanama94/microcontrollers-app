@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      {{title}}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12>
+
+        <h4 align="center">Remote Controller</h4>
+
+        <ion-list inset>
+          <button ion-button *ngFor="let button of buttons" (click)="send(button)">
+            <p>{{button.name}}</p>
+          </button>
+        </ion-list>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
