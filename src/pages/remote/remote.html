@@ -14,11 +14,12 @@
 
         <h4 align="center">Remote Controller</h4>
 
-        <ion-list inset>
-          <button ion-button *ngFor="let button of buttons" (click)="send(button)">
-            <p>{{button.name}}</p>
-          </button>
-        </ion-list>
+        <ion-grid>
+            <button ion-button round *ngFor="let button of buttons" (click)="send(button)">
+                <p>{{button.name}}</p>
+            </button>
+        </ion-grid>
+
 
       </ion-col>
     </ion-row>
