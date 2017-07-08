@@ -1,17 +1,22 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import {RemoteService} from "../../Services/RemoteService";
 
 @Component({
   selector: 'page-contact',
-  templateUrl: 'add.html'
+  templateUrl: 'add.html',
 })
 export class AddPage {
 
-  name: String;
+  name: string;
 
-  constructor(public navCtrl: NavController) {}
+  constructor(public navCtrl: NavController, private remoteService: RemoteService) {}
 
   save(){
-    alert("Saving remote");
+    alert(this.name);
+    this.remoteService.addRemote(this.name, "Something")
+      .then(data => {"remote" + name + "added"})
+      .catch((error) => alert(JSON.stringify(error)));
+
   }
 }
