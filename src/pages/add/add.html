@@ -7,16 +7,28 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
-    <ion-item>
-      <ion-label floating>Name</ion-label>
-      <ion-input type="text" [(ngModel)]="name"></ion-input>
-    </ion-item>
 
-    <button ion-button full><ion-icon name="add"></ion-icon>Add Button</button>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-10 offset-1>
 
-    <button ion-button full (click)="save()">Save</button>
+        <ion-list>
 
-  </ion-list>
+
+          <ion-item>
+            <ion-label floating>Name</ion-label>
+            <ion-input type="text" [(ngModel)]="name"></ion-input>
+          </ion-item>
+
+          <button ion-button full><ion-icon name="add"></ion-icon>Add Device</button>
+
+          <button ion-button full (click)="save()">Save</button>
+
+        </ion-list>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
 </ion-content>

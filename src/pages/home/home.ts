@@ -7,7 +7,7 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
-  items = ["itema", "item2"];
+  items = ["TV","AC","Home Theatre", "Fan"];
 
   constructor(public navCtrl: NavController) {
 
