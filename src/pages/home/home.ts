@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {NavController, LoadingController, Events} from 'ionic-angular';
 import {RemoteService} from "../../Services/RemoteService";
+import {RemotePage} from "../remote/remote";
 
 @Component({
   selector: 'page-home',
@@ -31,6 +32,10 @@ export class HomePage implements OnInit{
 
   open(item: any){
     alert("Selected ");
+  }
+
+  select(item:any){
+    this.navCtrl.push(RemotePage,{title:item})
   }
 
 
