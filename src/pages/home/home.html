@@ -5,11 +5,22 @@
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <ion-list inset>
-    <button ion-item *ngFor="let item of items" (click)="open(item)">
-      {{ item }}
-    </button>
-  </ion-list>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12>
+
+        <h4 align="center">Select Your Device</h4>
+        <ion-list inset>
+          <button ion-item *ngFor="let item of items" (click)="open(item)">
+            {{ item }}
+          </button>
+        </ion-list>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
 
 </ion-content>
