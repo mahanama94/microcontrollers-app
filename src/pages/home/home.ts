@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {NavController, LoadingController, Events} from 'ionic-angular';
 import {RemoteService} from "../../Services/RemoteService";
+import {BluetoothSerial} from "@ionic-native/bluetooth-serial";
+import {BluetoothService} from "../../Services/BluetoothService";
 
 @Component({
   selector: 'page-home',
@@ -25,12 +27,19 @@ export class HomePage implements OnInit{
       });
   }
 
-  constructor(public navCtrl: NavController, private remoteService: RemoteService, private loadingController: LoadingController, public events: Events) {
+  constructor(public navCtrl: NavController, private remoteService: RemoteService, private loadingController: LoadingController, public events: Events, private bluetoothSerial: BluetoothSerial,private bluetoothService: BluetoothService ) {
     this.events.subscribe('HomeSelect', () => {this.ngOnInit() })
   }
 
   open(item: any){
     alert("Selected ");
+    this.bluetoothSerial.connectInsecure("80:01:84:46:19:23").subscribe((data) =>{
+      alert(JSON.stringify(data));
+      this.bluetoothSerial.subscribeRawData().subscribe((data) => { alert("Subscription : " + JSON.stringify(data))});
+    });
+    setTimeout(() => {
+      this.bluetoothSerial.read().then((data) => { alert("read data : " +JSON.stringify(data))});
+    }, 2000);
   }
 
 

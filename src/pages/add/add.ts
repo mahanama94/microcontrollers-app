@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {RemoteService} from "../../Services/RemoteService";
+import {BluetoothService} from "../../Services/BluetoothService";
+import {BluetoothSerial} from "@ionic-native/bluetooth-serial";
 
 @Component({
   selector: 'page-contact',
@@ -10,11 +12,11 @@ export class AddPage {
 
   name: string = "New Device";
 
-  buttons: Array<{name : String}> = null;
+  buttons: Array<{name : String}> = [];
 
   buttonName : String = "";
 
-  constructor(public navCtrl: NavController, private remoteService: RemoteService) {}
+  constructor(public navCtrl: NavController, private remoteService: RemoteService, public bluetoothService: BluetoothService, public bluetoothSerial: BluetoothSerial) {}
 
   save(){
     alert(this.name);
@@ -26,9 +28,6 @@ export class AddPage {
 
   add(){
     console.log(this.buttons);
-    if(this.buttons == null){
-      this.buttons = [];
-    }
     this.buttons.push({name : this.buttonName});
     this.buttonName = "";
     console.log(this.buttons);
@@ -36,5 +35,6 @@ export class AddPage {
 
   capture(){
     alert("capturing from bluetooth");
+    this.add();
   }
 }

@@ -12,6 +12,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {NativeStorage} from "@ionic-native/native-storage";
 import {RemoteService} from "../Services/RemoteService";
+import {BluetoothSerial} from "@ionic-native/bluetooth-serial";
+import {BluetoothService} from "../Services/BluetoothService";
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import {RemoteService} from "../Services/RemoteService";
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     NativeStorage,
-    RemoteService
+    RemoteService,
+    BluetoothSerial,
+    BluetoothService
   ]
 })
 export class AppModule {}
