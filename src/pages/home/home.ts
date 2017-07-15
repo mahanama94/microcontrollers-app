@@ -3,6 +3,7 @@ import {NavController, LoadingController, Events} from 'ionic-angular';
 import {RemoteService} from "../../Services/RemoteService";
 import {BluetoothSerial} from "@ionic-native/bluetooth-serial";
 import {BluetoothService} from "../../Services/BluetoothService";
+import {RemotePage} from "../remote/remote";
 
 @Component({
   selector: 'page-home',
@@ -31,15 +32,9 @@ export class HomePage implements OnInit{
     this.events.subscribe('HomeSelect', () => {this.ngOnInit() })
   }
 
-  open(item: any){
-    alert("Selected ");
-    this.bluetoothSerial.connectInsecure("80:01:84:46:19:23").subscribe((data) =>{
-      alert(JSON.stringify(data));
-      this.bluetoothSerial.subscribeRawData().subscribe((data) => { alert("Subscription : " + JSON.stringify(data))});
-    });
-    setTimeout(() => {
-      this.bluetoothSerial.read().then((data) => { alert("read data : " +JSON.stringify(data))});
-    }, 2000);
+  select(remote : String){
+    alert("Operning page");
+    this.navCtrl.push(RemotePage, {remote : remote});
   }
 
 

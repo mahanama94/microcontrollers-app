@@ -1,26 +1,40 @@
-import { Component } from '@angular/core';
-import {NavController, NavParams} from 'ionic-angular';
+import {Component, OnInit} from '@angular/core';
+import {NavController, NavParams, LoadingController} from 'ionic-angular';
+import {RemoteService} from "../../Services/RemoteService";
+import {BluetoothService} from "../../Services/BluetoothService";
 
 @Component({
   selector: 'page-remote',
   templateUrl: 'remote.html'
 })
-export class RemotePage {
+export class RemotePage implements OnInit{
 
-  /*constructor(public navCtrl: NavController) {
-
-  }*/
   title = "";
-  buttons = [{name:"off",val:0},{name:"on",val:"1"},{name:"up",val:2},{name:"down",val:3},{name:"fuck",val:4}];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams){
-    // userParams is an object we have in our nav-parameters
-    this.title = navParams.get("title");
+  buttons = [];
 
+  ngOnInit(): void {
+    this.title = this.navParams.get("remote");
+    let loader = this.loadingController.create({
+      content : "Loading... Please wait.."
+    });
+    this.remoteService.getRemote(this.title)
+      .then((data) => {
+          this.buttons = data;
+          loader.dismissAll()})
+      .catch((error) => {
+          console.log(error);
+          alert("Unable to read data");
+          this.navCtrl.canGoBack()
+    });
+  }
+
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public remoteService: RemoteService, public loadingController: LoadingController, private bluetoothService : BluetoothService){
   }
 
   send(button: any){
-    alert(button.val);
+    alert(button.value);
   }
 
 }

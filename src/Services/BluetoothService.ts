@@ -14,7 +14,15 @@ export class BluetoothService{
     return this.bluetoothSerial.subscribeRawData();
   }
 
-  connect(macAddress_uuid) : Observable<any> {
-    return this.bluetoothSerial.connect(macAddress_uuid);
+  connect() : Observable<any> {
+    return this.bluetoothSerial.connectInsecure("00:21:13:00:B3:0C");
+  }
+
+  write(data): Promise<any>{
+    return this.bluetoothSerial.write(data);
+  }
+
+  subscribe(delimiter): Observable<any>{
+    return this.bluetoothSerial.subscribe(delimiter);
   }
 }

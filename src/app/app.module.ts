@@ -14,6 +14,7 @@ import {NativeStorage} from "@ionic-native/native-storage";
 import {RemoteService} from "../Services/RemoteService";
 import {BluetoothSerial} from "@ionic-native/bluetooth-serial";
 import {BluetoothService} from "../Services/BluetoothService";
+import {RemotePage} from "../pages/remote/remote";
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {BluetoothService} from "../Services/BluetoothService";
     AboutPage,
     AddPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    RemotePage
   ],
   imports: [
     BrowserModule,
@@ -33,7 +35,8 @@ import {BluetoothService} from "../Services/BluetoothService";
     AboutPage,
     AddPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    RemotePage
   ],
   providers: [
     StatusBar,
